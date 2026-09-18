@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>marquee</title>
+<link rel="stylesheet" href="panel.css">
+<style>
+  html, body { width: 1400px; height: 560px; overflow: hidden; }
+  .stage { position: relative; width: 1400px; height: 560px; box-sizing: border-box; }
+  .stage::before { content: ""; position: absolute; top: 0; bottom: 0; left: 64px; border-left: 3px solid var(--margin); }
+  .left { position: absolute; left: 110px; top: 112px; width: 640px; }
+  .left .wordmark { font-size: 104px; padding: 58px 0 0 26px; }
+  .left .wordmark .un { font-size: 62px; top: 4px; left: 2px; }
+  .left .wordmark .caret { display: none; }
+  .left .wordmark .mark { position: absolute; left: 6px; bottom: -14px; width: 30px; height: 20px; fill: none; stroke: var(--red); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+  .claim { margin: 30px 0 0 30px; font: italic 400 33px/1.3 var(--serif); color: var(--ink-2); }
+  .claim em { color: var(--red); font-weight: 600; }
+  .sub { margin: 20px 0 0 30px; font: 500 20px/1.5 var(--sans); color: var(--muted); }
+  .sheet-card { position: absolute; right: 90px; top: 118px; width: 500px; transform: rotate(-1.6deg); border-radius: 16px; background: var(--card); border: 1px solid var(--rule); box-shadow: 0 30px 60px -30px #3b2a1466, 0 2px 0 #0000000a; padding: 22px 26px 26px; }
+  .tabs-mini { display: flex; gap: 18px; font: 600 15px/1 var(--sans); color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 12px; margin-bottom: 4px; }
+  .tabs-mini b { color: var(--ink); border-bottom: 3px solid var(--red); padding-bottom: 10px; margin-bottom: -13px; }
+  .tabs-mini .badge { font-size: 12px; margin-left: 6px; }
+  .sheet-card .page { min-height: 0; font-size: 22px; --lh: 38px; line-height: var(--lh); padding: 12px 8px 8px 44px; background-image: repeating-linear-gradient(to bottom, transparent 0 calc(var(--lh) - 1px), var(--rule) calc(var(--lh) - 1px) var(--lh)); background-position: 0 12px; position: relative; }
+  .sheet-card .page::before { content: ""; position: absolute; top: 0; bottom: 0; left: 26px; border-left: 2px solid var(--margin); }
+  .meter { margin-top: 18px; display: flex; align-items: center; gap: 14px; font: 600 14px/1 var(--sans); color: var(--muted); }
+  .meter .bar { position: relative; flex: 1; height: 10px; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--ok) 45%, transparent), color-mix(in srgb, #d9a520 45%, transparent), color-mix(in srgb, var(--red) 55%, transparent)); }
+  .meter .bar i { position: absolute; left: 5%; top: -4px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); border: 3px solid var(--card); box-shadow: 0 0 0 2px var(--ink); }
+  .meter .raw { font: 700 24px/1 var(--serif); color: var(--ok); font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1; }
+</style>
+</head>
+<body data-mode="standalone">
+  <div class="stage">
+    <div class="left">
+      <h1 class="wordmark"><span class="un">Un</span><span class="caret">‸</span><svg class="mark" viewBox="0 0 30 20" aria-hidden="true"><path d="M4 17 L15 4 L26 17"/></svg><span class="pol">polished</span></h1>
+      <p class="claim">Correct English that still sounds like <em>you</em>.</p>
+      <p class="sub">For everyone who writes in English as a second language.<br>On your own computer, or with your own AI key.</p>
+    </div>
+    <div class="sheet-card">
+      <div class="tabs-mini"><span>Clean</span><b>Red pen<span class="badge">6</span></b><span>Polish check</span></div>
+      <div class="page"><del>i</del><ins>I</ins> <del>make</del><ins>made</ins> this tool because <del>i</del><ins>I</ins> lost many hours on this problem myself. <del>it</del><ins>It</ins> is free and <del>work</del><ins>works</ins> in <ins>the</ins> browser.</div>
+      <div class="meter"><span class="raw">Raw</span><span class="bar"><i></i></span><span>Glossy</span></div>
+    </div>
+  </div>
+</body>
+</html>

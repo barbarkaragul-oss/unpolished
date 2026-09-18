@@ -97,6 +97,10 @@ try {
   const tile = await page(`${BASE}/tile.html`, 440, 280);
   await sleep(600);
   await tile.shoot('promo-tile-440x280.jpg');
+
+  const marquee = await page(`${BASE}/marquee.html`, 1400, 560);
+  await sleep(800);
+  await marquee.shoot('marquee-1400x560.jpg');
 } finally {
   ws.close(); chrome.kill(); server.close();
   await sleep(800);

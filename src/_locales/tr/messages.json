@@ -1,0 +1,6 @@
+{
+  "name": { "message": "Unpolished" },
+  "desc": { "message": "Hâlâ sana benzeyen doğru İngilizce. Hatalarını düzeltir, sesini korur, bir aracın metni fazla cilaladığını gösterir." },
+  "menu": { "message": "Bunu cilasızca düzelt" },
+  "command": { "message": "Bulunduğun metin kutusunu düzelt" }
+}

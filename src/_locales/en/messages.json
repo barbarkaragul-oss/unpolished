@@ -1,0 +1,6 @@
+{
+  "name": { "message": "Unpolished" },
+  "desc": { "message": "Correct English that still sounds like you. Fixes your mistakes, keeps your voice, and shows when a tool over-polished it." },
+  "menu": { "message": "Unpolish this" },
+  "command": { "message": "Unpolish the text box you are in" }
+}

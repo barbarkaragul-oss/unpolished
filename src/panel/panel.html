@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unpolished</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <main class="sheet" id="sheet">
+    <header class="masthead">
+      <h1 class="wordmark" aria-label="Unpolished">
+        <span class="un" aria-hidden="true">Un</span><span class="caret" aria-hidden="true">‸</span><span class="pol">polished</span>
+      </h1>
+      <button class="icon-btn" id="settings" title="Settings" aria-label="Settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+      </button>
+      <button class="icon-btn only-inject" id="close" title="Close (Esc)" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <p class="tagline">Correct English that still sounds like <em>you</em>.</p>
+
+    <div class="engine" id="engine" role="status">
+      <span class="dot" aria-hidden="true"></span><span id="engine-name">Looking for a model…</span>
+    </div>
+
+    <section class="compose only-standalone" id="compose">
+      <label class="label" for="input">Your English</label>
+      <div class="notebook">
+        <textarea id="input" spellcheck="false" placeholder="Write or paste it here. Rough is fine; that is the point."></textarea>
+      </div>
+      <div class="actions">
+        <button class="stamp" id="fix"><span>Fix it</span></button>
+        <div class="seg" role="radiogroup" aria-label="How much to change">
+          <button role="radio" data-mode="fix" aria-checked="true" title="Fix mistakes only. One sentence out for each sentence in.">Only mistakes</button>
+          <button role="radio" data-mode="clarity" aria-checked="false" title="Also split a sentence that is hard to follow. Never adds anything.">Untangle too</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="yours only-inject" id="yours" hidden>
+      <details>
+        <summary><span class="label">Your text</span> <span class="muted" id="yours-count"></span></summary>
+        <p class="yours-text" id="yours-text"></p>
+      </details>
+    </section>
+
+    <section class="result" id="result" hidden>
+      <nav class="tabs" role="tablist">
+        <button role="tab" data-tab="clean" aria-selected="true">Clean</button>
+        <button role="tab" data-tab="pen" aria-selected="false">Red pen <span class="badge" id="pen-count"></span></button>
+        <button role="tab" data-tab="polish" aria-selected="false">Polish check <span class="gloss-dot" id="polish-dot"></span></button>
+      </nav>
+
+      <div class="page notebook" data-view="clean" id="view-clean" aria-live="polite"></div>
+      <div class="page notebook" data-view="pen" id="view-pen" hidden></div>
+      <div class="page polish" data-view="polish" id="view-polish" hidden></div>
+
+      <div class="warning" id="warning" hidden></div>
+    </section>
+
+    <section class="working" id="working" hidden>
+      <svg class="pen-line" viewBox="0 0 300 24" aria-hidden="true"><path d="M4 16 C 40 4, 70 22, 110 12 S 180 4, 220 14 S 280 20, 296 8"/></svg>
+      <p id="working-text">Reading it with a red pen…</p>
+      <button class="link" id="stop">Stop</button>
+    </section>
+
+    <footer class="foot" id="foot" hidden>
+      <button class="stamp only-inject" id="replace"><span>Put it back</span></button>
+      <button class="ghost" id="copy">Copy</button>
+      <button class="ghost only-standalone" id="again">Start over</button>
+    </footer>
+    <p class="privacy" id="privacy"></p>
+  </main>
+  <script type="module" src="panel.js"></script>
+</body>
+</html>

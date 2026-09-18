@@ -1,0 +1,31 @@
+{
+  "name": "unpolished",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Unpolished. Correct English that still sounds like you.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "sync": "tsx scripts/sync-markers.ts",
+    "build": "tsx scripts/build.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "test": "node --import tsx --test \"tests/*.test.ts\"",
+    "dev": "tsx scripts/build.ts --dev && node scripts/serve.mjs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/chrome": "^0.3.0",
+    "@types/diff": "^7.0.2",
+    "@types/node": "^26.6.1",
+    "diff": "^9.0.0",
+    "esbuild": "^0.28.2",
+    "fflate": "^0.8.3",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}

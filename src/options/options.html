@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unpolished · Settings</title>
+  <link rel="stylesheet" href="panel.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body data-mode="standalone">
+  <main class="sheet options">
+    <header class="masthead">
+      <h1 class="wordmark" aria-label="Unpolished"><span class="un" aria-hidden="true">Un</span><span class="caret" aria-hidden="true">‸</span><span class="pol">polished</span></h1>
+    </header>
+    <p class="tagline">Settings. Everything here stays on this computer.</p>
+
+    <section>
+      <h2>What corrects your text</h2>
+      <p class="muted">Whatever you pick, the polish check always runs on this computer, with no model at all.</p>
+      <div class="choices" id="choices" role="radiogroup"></div>
+    </section>
+
+    <section class="box" data-for="anthropic">
+      <h3>Claude, with your key</h3>
+      <p class="muted">Your text goes straight from this browser to Anthropic. There is no server of ours in between; the key is stored only in this browser.</p>
+      <label>API key <input type="password" id="anthropicKey" autocomplete="off" spellcheck="false" placeholder="sk-ant-…"></label>
+      <label>Model <input type="text" id="anthropicModel" spellcheck="false"></label>
+    </section>
+
+    <section class="box" data-for="openai">
+      <h3>OpenAI, with your key</h3>
+      <p class="muted">Straight to OpenAI. Use the model name OpenAI gives you.</p>
+      <label>API key <input type="password" id="openaiKey" autocomplete="off" spellcheck="false" placeholder="sk-…"></label>
+      <label>Model <input type="text" id="openaiModel" spellcheck="false" placeholder="a model name"></label>
+    </section>
+
+    <section class="box" data-for="ollama">
+      <h3>Ollama, on your own server</h3>
+      <label>Address <input type="url" id="ollamaUrl" spellcheck="false"></label>
+      <label>Model <input type="text" id="ollamaModel" spellcheck="false"></label>
+    </section>
+
+    <section class="box">
+      <h3>The stamp in every text box</h3>
+      <p class="muted">Off, Unpolished only runs when you ask: right-click → <i>Unpolish this</i>, or <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd>. On, the small stamp shows in text boxes on every site, which needs Chrome's permission to run on all sites. It still reads a text box only when you click the stamp.</p>
+      <label class="toggle"><input type="checkbox" id="everywhere"> Show the stamp everywhere</label>
+    </section>
+
+    <div class="actions">
+      <button class="stamp" id="save"><span>Save</span></button>
+      <span class="muted" id="status" role="status"></span>
+    </div>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

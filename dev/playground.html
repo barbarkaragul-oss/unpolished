@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unpolished playground</title>
+  <style>
+    body { font: 15px/1.5 system-ui, sans-serif; max-width: 760px; margin: 32px auto; padding: 0 16px; color: #222; background: #fff; }
+    h1 { font-size: 18px; } .note { color: #666; font-size: 13px; }
+    textarea, [contenteditable] { width: 100%; min-height: 150px; padding: 10px 12px; font: 15px/1.5 system-ui; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+    [contenteditable] { min-height: 90px; outline: none; } label { display: block; margin: 18px 0 6px; font-weight: 600; }
+    a { color: #2346b5; }
+  </style>
+</head>
+<body>
+  <h1>Unpolished playground</h1>
+  <p class="note">The page script and the panel from the dev build, with a stand-in for Chrome's extension APIs. Click into a box: the stamp shows in its corner. <a href="panel.html" target="_blank">Side panel view</a> · <a href="options.html" target="_blank">Settings view</a></p>
+
+  <label for="reddit">A Reddit comment (textarea)</label>
+  <textarea id="reddit">hi everyone. i am solo dev from turkey and my english is not good sorry. i build small tool that show you why your github action not run when you push code. it check the cron and the if conditions and tell you real reason. i make it because i lost many hours on this problem myself. it is free no signup and work in browser. i hope some people find it usefull.</textarea>
+
+  <label>An email (contenteditable)</label>
+  <div contenteditable="true" id="mail">Hello Mark, thank you for your answer. I am agree with you, the meeting is more better on thursday because on wednesday i have a exam. Please let me know if it is ok for you.</div>
+
+  <label for="slop">Something a tool already polished (textarea)</label>
+  <textarea id="slop">In today's fast-paced world, it is crucial to leverage the right tools. Let me delve into how this works. It's fast, reliable, and scalable — and it's important to note that it is free.</textarea>
+
+  <script>
+    // stand-in for chrome.* so the page script and panel run in a plain tab; settings go to localStorage
+    window.chrome = { runtime: { getURL: (p) => new URL(p, location.href).href, onMessage: { addListener() {} } } };
+    const q = new URLSearchParams(location.search);
+    if (q.get('ollama')) localStorage.setItem('unpolished.settings', JSON.stringify({ engine: 'ollama', ollamaUrl: q.get('ollama'), ollamaModel: q.get('model') || 'llama3:latest' }));
+  </script>
+  <script src="content.js"></script>
+</body>
+</html>

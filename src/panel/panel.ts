@@ -5,6 +5,7 @@
 import { load, save, type Settings } from '../settings';
 import { pick, type Pick } from '../engines/pick';
 import { EngineError } from '../engines/types';
+import { destination } from '../engines/api';
 import { fix } from '../core/fix';
 import { scan, added as addedTells, LEVEL_TEXT, type Scan, type Level } from '../core/scan';
 import { redPen, corrections } from '../core/diff';
@@ -36,8 +37,10 @@ function describe(): void {
   const lock = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
   chip.dataset.where = e && chosen.availability !== 'unavailable' ? e.where : 'none';
   if (e && chosen.availability === 'ready') {
-    name.textContent = e.label;
-    privacy.innerHTML = lock + (e.where === 'device' ? 'Nothing leaves this computer.' : e.where === 'cloud' ? `Sent only to ${e.id === 'anthropic' ? 'Anthropic' : 'OpenAI'}, with your key. No server of ours.` : 'Sent only to your own Ollama server.');
+    name.textContent = e.name(settings);
+    const to = destination(settings);
+    const keyed = settings.provider === 'custom' ? '' : ', with your key';
+    privacy.innerHTML = lock + (e.where === 'device' ? 'Nothing leaves this computer.' : e.where === 'cloud' ? `Sent only to ${to}${keyed}. No server of ours.` : 'Sent only to your own Ollama server.');
   } else if (e && (chosen.availability === 'downloadable' || chosen.availability === 'downloading')) {
     name.textContent = chosen.availability === 'downloading' ? 'Chrome is downloading its model…' : 'Chrome has a model for this; the first fix downloads it once';
     privacy.innerHTML = lock + 'Nothing leaves this computer.';

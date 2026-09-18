@@ -5,8 +5,7 @@ Unpolished collects nothing. It has no server, no analytics, no account and no t
 **Your text** is read only when you ask: when you click the stamp, choose *Unpolish this*, press the shortcut, or paste into the side panel. What happens to it depends on the engine you choose in Settings:
 
 - *Chrome's built-in model*: corrected on your computer. It is not sent anywhere.
-- *Claude, with your key*: sent from your browser directly to Anthropic's API with your API key, under Anthropic's terms.
-- *OpenAI, with your key*: sent from your browser directly to OpenAI's API with your API key, under OpenAI's terms.
+- *Your own API key*: sent from your browser directly to the provider you chose (Anthropic, OpenAI, Google, Mistral, Groq, DeepSeek, OpenRouter, xAI, Together AI, or the address you gave), with your key, under that provider's terms.
 - *Ollama*: sent to the Ollama server at the address you gave.
 - *Polish check only*: nothing is sent; the check runs on your computer.
 

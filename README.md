@@ -13,12 +13,13 @@ A Chrome extension for people who write in English as a second language. It fixe
 | Engine | Where it runs | Needs |
 |---|---|---|
 | Chrome's built-in model (Gemini Nano, Prompt API) | on this computer; nothing is sent | Chrome 138+ on a desktop, 22 GB free, a GPU with more than 4 GB or 16 GB of RAM; downloads once |
-| Claude, with your key | straight from the extension to Anthropic | your Anthropic API key |
-| OpenAI, with your key | straight from the extension to OpenAI | your OpenAI key and a model name |
+| Your own API key | straight from the extension to the provider you pick, billed to your key | a key: Claude (Anthropic), ChatGPT (OpenAI), Gemini (Google), Mistral, Groq, DeepSeek, OpenRouter, Grok (xAI), Together AI, or any OpenAI-compatible address (LM Studio, vLLM, a proxy) |
 | Ollama | your own Ollama server | Ollama and a model |
 | Polish check only | on this computer | nothing |
 
-There is no server of ours. Keys are kept in `chrome.storage.local`, on this computer, never in sync storage. Nothing is collected.
+There is no server of ours. Keys are kept in `chrome.storage.local`, one per provider, on this computer, never in sync storage. Nothing is collected. Model names are not built in, because they change too often: Settings asks the provider for its own list (**Load models**), and you can also type one.
+
+Adding a provider is one line in [`src/engines/providers.ts`](src/engines/providers.ts), if it speaks the OpenAI chat completions protocol.
 
 ## Permissions
 

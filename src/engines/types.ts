@@ -1,13 +1,14 @@
 import type { Settings } from '../settings';
 
-export type EngineId = 'chrome-ai' | 'anthropic' | 'openai' | 'ollama' | 'none';
+export type EngineId = 'chrome-ai' | 'api' | 'ollama';
 export type Availability = 'ready' | 'downloadable' | 'downloading' | 'unavailable' | 'needs-setup';
 /** Where the text goes: shown on the panel, so the user always knows. */
 export type Where = 'device' | 'cloud' | 'local-server' | 'none';
 
 export interface Engine {
   id: EngineId;
-  label: string;
+  /** as the panel names it: "Chrome, on this computer", "Gemini, with your key" */
+  name(s: Settings): string;
   where: Where;
   availability(s: Settings): Promise<Availability>;
   /** Streams the corrected text through onText (the whole text so far each time) and resolves with the final answer. */

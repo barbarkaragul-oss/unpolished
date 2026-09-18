@@ -20,18 +20,19 @@
       <div class="choices" id="choices" role="radiogroup"></div>
     </section>
 
-    <section class="box" data-for="anthropic">
-      <h3>Claude, with your key</h3>
-      <p class="muted">Your text goes straight from this browser to Anthropic. There is no server of ours in between; the key is stored only in this browser.</p>
-      <label>API key <input type="password" id="anthropicKey" autocomplete="off" spellcheck="false" placeholder="sk-ant-…"></label>
-      <label>Model <input type="text" id="anthropicModel" spellcheck="false"></label>
-    </section>
-
-    <section class="box" data-for="openai">
-      <h3>OpenAI, with your key</h3>
-      <p class="muted">Straight to OpenAI. Use the model name OpenAI gives you.</p>
-      <label>API key <input type="password" id="openaiKey" autocomplete="off" spellcheck="false" placeholder="sk-…"></label>
-      <label>Model <input type="text" id="openaiModel" spellcheck="false" placeholder="a model name"></label>
+    <section class="box" data-for="api">
+      <h3>Your own API key</h3>
+      <p class="muted">Your text goes straight from this browser to the provider you pick, billed to your key. There is no server of ours in between. Keys are stored only in this browser, one per provider.</p>
+      <label>Provider <select id="provider"></select></label>
+      <p class="muted" id="keys-at"></p>
+      <label id="base-row">Address <input type="url" id="baseUrl" spellcheck="false" placeholder="http://localhost:1234/v1"></label>
+      <label>API key <input type="password" id="apiKey" autocomplete="off" spellcheck="false"></label>
+      <div class="model-row">
+        <label>Model <input type="text" id="apiModel" list="models" spellcheck="false" placeholder="load the list, or type a name"></label>
+        <button class="ghost" id="load-models" type="button">Load models</button>
+      </div>
+      <datalist id="models"></datalist>
+      <p class="muted" id="models-status" role="status"></p>
     </section>
 
     <section class="box" data-for="ollama">

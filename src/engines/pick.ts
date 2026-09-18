@@ -5,11 +5,10 @@
 import type { Settings } from '../settings';
 import type { Availability, Engine, EngineId } from './types';
 import { chromeAi } from './chrome-ai';
-import { anthropic } from './anthropic';
-import { openai } from './openai';
+import { api } from './api';
 import { ollama } from './ollama';
 
-export const ENGINES: Engine[] = [chromeAi, anthropic, openai, ollama];
+export const ENGINES: Engine[] = [chromeAi, api, ollama];
 export const engineById = (id: EngineId): Engine | undefined => ENGINES.find((e) => e.id === id);
 
 export interface Pick { engine: Engine | undefined; availability: Availability; all: { engine: Engine; availability: Availability }[] }

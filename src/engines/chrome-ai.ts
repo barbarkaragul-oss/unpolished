@@ -33,7 +33,7 @@ function pieces(text: string): { body: string; sep: string }[] {
 
 export const chromeAi: Engine = {
   id: 'chrome-ai',
-  label: 'Chrome, on this computer',
+  name: () => 'Chrome, on this computer',
   where: 'device',
   async availability(): Promise<Availability> {
     const lm = api();

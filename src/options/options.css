@@ -18,3 +18,8 @@
 .toggle { display: flex !important; grid-template-columns: none; flex-direction: row; align-items: center; gap: 8px; font: 500 14px/1.3 var(--sans) !important; }
 .toggle input { accent-color: var(--red); width: 18px; height: 18px; }
 kbd { font: 600 11.5px/1 var(--sans); border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 5px; padding: 2px 5px; background: var(--paper); }
+.box select { font: 400 15px/1.3 var(--sans); padding: 9px 11px; border-radius: 9px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); }
+.model-row { display: flex; gap: 10px; align-items: flex-end; }
+.model-row label { flex: 1; }
+.model-row .ghost { white-space: nowrap; height: 40px; }
+.box a { color: var(--blue); }

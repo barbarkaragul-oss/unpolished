@@ -32,7 +32,7 @@ test('addedText catches a model that writes more than it was asked to correct', 
 test('fix retries once with a stricter prompt when text was added, and says so when it still was', async () => {
   const calls: string[] = [];
   const engine = (answers: string[]): Engine => ({
-    id: 'ollama', label: 'fake', where: 'local-server',
+    id: 'ollama', name: () => 'fake', where: 'local-server',
     availability: async () => 'ready',
     correct: async (_t, ask, _s, onText) => { calls.push(ask.system); const a = answers.shift()!; onText(a); return a; },
   });

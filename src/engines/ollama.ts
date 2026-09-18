@@ -7,7 +7,7 @@ const base = (s: Settings): string => s.ollamaUrl.trim().replace(/\/+$/, '');
 
 export const ollama: Engine = {
   id: 'ollama',
-  label: 'Ollama, on your server',
+  name: (s) => `Ollama (${s.ollamaModel}), on your server`,
   where: 'local-server',
   async availability(s: Settings): Promise<Availability> {
     try {

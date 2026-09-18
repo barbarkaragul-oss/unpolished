@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tile</title>
+<link rel="stylesheet" href="panel.css">
+<style>
+  html, body { width: 440px; height: 280px; overflow: hidden; }
+  body { display: grid; place-items: center; }
+  .card { width: 440px; height: 280px; box-sizing: border-box; padding: 34px 34px 0 40px; position: relative; }
+  .card::before { content: ""; position: absolute; top: 0; bottom: 0; left: 22px; border-left: 2px solid var(--margin); }
+  .wordmark { font-size: 58px; padding: 30px 0 0 16px; }
+  .wordmark .un { font-size: 36px; top: 2px; }
+  .wordmark .caret { bottom: -10px; }
+  .line { margin: 18px 0 0 18px; font: italic 400 17.5px/1.35 var(--serif); white-space: nowrap; color: var(--ink-2); }
+  .line em { color: var(--red); font-weight: 600; }
+  .pen { margin: 16px 0 0 18px; font: 400 18px/1.4 var(--serif); }
+  .pen del { color: var(--red); text-decoration: none; background: linear-gradient(to bottom, transparent 0 52%, var(--red) 52% 62%, transparent 62%); }
+  .pen ins { text-decoration: none; color: var(--blue); font-style: italic; font-weight: 500; }
+</style>
+</head>
+<body data-mode="standalone">
+  <div class="card">
+    <h1 class="wordmark"><span class="un">Un</span><span class="caret">‸</span><span class="pol">polished</span></h1>
+    <p class="line">Correct English that still sounds like <em>you</em>.</p>
+    <p class="pen"><del>i make</del> <ins>I made</ins> it because <del>i</del> <ins>I</ins> needed it.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      # src/vendor/ holds the tells already made from markers.json, so the build does not need the other repo
+      - run: npm run build
+      - uses: actions/upload-artifact@v5
+        with:
+          name: unpolished-zip
+          path: release/*.zip
+          if-no-files-found: error
